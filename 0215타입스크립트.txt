@@ -93,3 +93,83 @@ let myFunction:( ) => void;
 myfunction = function(){
 	console.log('hi')
 }
+
+
+
+2023-02-16
+
+typeScript
+let num:number = 30
+num= "a"
+
+typescript ==> javascript
+
+
+    //암묵적으로 any타입을 가지는 것을 허락하지않음
+	(두개를 쓰는것과 strict:true 가 똑같음)
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    //엄격한 nulltype체크
+    "strict":true,
+
+this.바인딩 메서드
+this --> window
+user.print( ) // user가 this 
+함수내부에에서 사용할 this를 바인딩(지정)
+	function printName(){
+		console.log(this.name) //윈도우.		
+	}
+	call( )  // call메소드는 모든 함수에서 사용할수 있으며 this를 특정한값으로 바인딩할때 사용
+	        // call은 일반적인 함수와 같이 매개변수를 직접받지만 
+		apply는 배열로 받는다
+	apply( ) // update.call(green,1998,"teacher")
+		update.apply(green,[1998,"teacher"])
+bind( ) // 함수에서 사용할 this를 영구적으로 지정
+const updatebella=함수.bind(대상객체)
+updatebella(1980,"police")
+
+Enum 열거형타입
+숫자 혹은 문자열 값 집합에 이름을 부여할수있는 타입
+값의 종류가 일정한 범위로 정해져 있는경우 유용함. 
+구문 enum name {
+	값1,
+	값2,
+	값3,
+}
+
+interface 타입스크립트의 여러 객체를 정의하는 일종의 규칙이며 구조이다.
+1.객체의 타입정의
+	객체타입의 interface
+	interface 인터페이스 이름 {
+		key:key타입;
+		key?:key타입;
+	}
+2.함수의 타입정의
+	함수타입의 interface
+	interface 인터페이스이름 {
+		호출 시그니쳐정의
+		(parameter: parametertype):return type
+	} 
+3.클래스의 타입정의
+
+클래스 
+객체를 생성해주는 템플릿!!!
+객체의 설계도 
+데이터는 들어있지 않음
+class 클래스명 {
+	//생성자
+	constructor(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	//method
+	speak(){
+		console.log(`${this.name}:hello`)
+	}
+}
+
+let user2 = new 클래스명
+
+
+객체 
+클래스를 사용해서 실제 만드는것

@@ -1,0 +1,12 @@
+"use strict";
+let booleanType = true;
+let numType = 30;
+let stringType = "green";
+let undefinedType = (undefined);
+let nullType = null;
+let objType = {};
+numType = 30000;
+let arr = [0, 1, 2, 3, 4, 5];
+let arr2 = [1, 2, 3, 4, 5];
+let strArr = ["a", "b", "c", "d", "e"];
+let strArr2 = ["가", "나", "다", "라", "마"];

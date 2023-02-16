@@ -33,3 +33,52 @@ let stu2:Student = {
     gender:"남자",
     1:"B"
 }
+// 모든 파라미터 readonly
+interface ReadUser {
+     name:string,
+     age:number
+     phone: string
+}
+
+let readuser1: Readonly<ReadUser> = {
+    name:"그린",
+    age:30,
+    phone:"010-1111-2222"
+}
+// readuser1.name = "ddd"
+
+interface TV {
+    turnOn(): boolean;
+    turnOff(): void;
+}
+
+const myTv:TV = {
+    turnOn(){
+        return true
+    },
+    turnOff(){
+        console.log("off")
+    }
+}
+
+interface Signup {
+    email: string;
+    id: string;
+    password: string;
+}
+
+class student {
+    constructor(name: string){
+        this.name = name;
+    }
+    getName(){
+
+    }
+}
+//클래스 타입 인터페이스 !!
+//implements 키워드 
+interface IStudent {
+    name: string,
+    getName():string
+}
+class Student2 implements

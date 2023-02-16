@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //클래스 선언
+        class Person {
+            //생성자함수
+            constructor(name,age,){
+                this.name= name;
+                this.age =age;
+            }
+            //method정의
+            speak(){
+                console.log(`${this.name}:hello`);
+            }
+        }
+        const min = new Person(`min`,29);
+        min.speak();
+        class shape {
+            constructor(width,height,color){
+                this.width = width
+                this.height= height
+                this.color = color
+            }
+            draw() {
+                console.log('그렸어요');
+            }
+            getArea(){
+                return this.width * this.height;
+            }
+        }
+        class Triangle extends shape {
+            constructor(width,height,color,size){
+                super(width,height,color)
+                this.size = size
+            }
+            //오버라이딩
+            //필요한 메소드만 재정의
+            getArea(){
+                return (this.width * this.height)/2
+            }
+            draw(){
+                console.log("😢");
+                super.draw();
+            }
+            
+        }
+        const triangle2 = new Triangle(20,20,"blue","small")
+        console.log(triangle2.getArea())
+        triangle2.draw()
+
+        //a instanceof b
+        //a객체가 b클래스를 이용해서 만들었는지 체크
+        //b클래스로 생성된객체면 true를 리턴 아니면 false를 리턴
+        console.log(triangle2 instanceof Triangle);
+        console.log(triangle2 instanceof shape);
+        console.log(triangle2 instanceof Person)
+    </script>
+</body>
+</html>

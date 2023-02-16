@@ -9,6 +9,14 @@
     "target": "ES6",                                  
     "module": "commonjs",                                
     "rootDir": "src",                              
-    "outDir": "dist",                                 
+    "outDir": "dist",   
+    //암묵적으로 any타입을 가지는 것을 허락하지않음(두개를 쓰는것과 strict:true 가 똑같음)
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    //엄격한 nulltype체크
+    "strict":true,
+
+    //컴파일시 주석제거하기
+    "removeComments": true
   }
 }
