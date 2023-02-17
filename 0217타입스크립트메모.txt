@@ -1,0 +1,139 @@
+230217
+
+Generic 제너릭
+재사용을 목적으로 함수나 클래스의 선언 시점이 아닌 사용시점에
+타입을 선언
+타입을 인수로 받아서 사용
+-타입변수는 사용자가 제공한 타입으로 변환될 식별자이다.
+function getSize<T>(arr: number [ ] | string [ ] | 
+		boolean[ ] | object [ ]|): number{
+	return arr.length;
+}
+const arr1 = [1,2,3];
+getSize(arr1) // 3
+const arr2 = ["a","b","c","d"]
+getSize(arr2) //
+const arr3 = [false,true,false,true]
+getSize(arr3)
+const arr4 = [{ },{ },{ },{ }]
+///이건 개불편함
+function getSize<T>(arr : T[ ]): number{
+	return arr.length;
+}
+const arr1 = [1,2,3];
+getSize<number>(arr1) // 값을 T로 전달 넘버타입을 받을수있게됨.
+const arr2 = ["a","b","c","d"]
+getSize<string>(arr2) //함수사용시점에 타입을 전달.
+const arr3 = [false,true,false,true]
+getSize<boolean>(arr3)
+const arr4 = [{ },{ },{ },{ }]
+getSize<object>(arr4)
+
+제네릭 제약조건
+T extends U
+ex> T string 과 number만 허용하겠다. 
+<T extends number | string>
+<T extends { name: string }>
+type U = string | number | boolean
+interface Mytype<T extends U>{
+	name:string;
+	value:T // number 와 string만 올수있음
+}
+const data:Mytype<number> = {
+	name:"A",
+	value: 123
+}
+const data:Mytype<string> = {
+	name:string;
+	value:"아 어렵네..." 
+}
+
+새로운 interface 3개 생성
+새로운 interface타입의 객체를 3개 생성
+printColor( )함수 구현 ---> 객체타입을 매개변수로 받아서 
+객체.color를 콘솔에 출력해줌 color 프로퍼티 필수
+
+인터페이스 확장
+interface Animal {
+
+}
+interface ICat extends Animal {
+	sounds( ):string
+}
+class Cat implements ICat {
+	name: string;
+	constructor(name){
+		this.name = name;
+	}
+	sound(){
+		return "야옹";
+	}
+}
+
+interface IName {
+	name1: string;
+	age:number
+}
+interface IName {
+	name2:string;
+}
+const namename:IName = {
+	name1:"A",
+	age:20,
+	name2:"B"
+}
+
+클래스
+접근 제한자 
+public : 
+	어디서나 자유롭게 접근가능 (생략가능) 
+	범위:속성,메소드
+	클래스 내부에서 접근, 인스턴스접근 ,자식클래스에서도 접근
+protected :
+	내 클래스 내부, 자식클래스 내부에서 접근가능 (인스턴스 접근 X)
+	범위:속성,메소드
+private:
+	내 클래스 내부에서만 접근 가능 (자식클래스,인스턴스 접근 X)
+			
+
+클래스 --> 객체(instance)
+
+정적 멤버 - 정적필드, 정적메소드 static
+인스턴스 멤버 - 인스턴스 필드 , 인스턴스 메소드
+
+클래스 필드 , 메소드
+
+클래스 ---> 객체를 만듦(클래스의 인스턴스) --> 인스턴스멤버(객체마다 가짐)
+let cat = new Cat(".")
+cat.name 
+클래스 ---> 정적멤버
+ClassCat.name2
+
+추상클래스
+상속만 가능하고 인스턴스( 객체 ) 를 생성할수 없다.
+
+추상메서드
+메서드의 이름만 선언하고 구체적인 기능은 상속받는 쪽에서 구현한다.
+상속받는 클래스\는 모두 다 같은 이름의 메소드를 가지며
+구현은 각각 다르게 할수 잇다.
+
+abstract class Person {
+	name: string
+	constructor(name){
+		this.name = name;
+	}
+	abstract work():void // 추상메서드 형태는 없고 선언만해놓는 메소드
+			//상속받는 클래스에서 구현
+ }
+
+class Teacher extends Person {
+	work():void {
+		console.log("가르치는 일을 합니다.")
+	}
+}
+
+class Engineer extends Person {
+	work():void{
+		console.log("")
+	}
+}
