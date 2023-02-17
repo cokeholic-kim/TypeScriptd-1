@@ -124,7 +124,7 @@ user.print( ) // user가 this
 		apply는 배열로 받는다
 	apply( ) // update.call(green,1998,"teacher")
 		update.apply(green,[1998,"teacher"])
-bind( ) // 함수에서 사용할 this를 영구적으로 지정
+	bind( ) // 함수에서 사용할 this를 영구적으로 지정
 const updatebella=함수.bind(대상객체)
 updatebella(1980,"police")
 
@@ -170,6 +170,17 @@ class 클래스명 {
 
 let user2 = new 클래스명
 
+함수 오버로드 
+이름은 같고 매개변수 타입과 반환타입이 다른 여러 함수를 만들수 있음 
+다양한 구조의 함수를 생성하고 관리할수 있음.
+선언부
+function add( a :string, b: string ) :string;
+function add( a :number, b: number ) :number;
+function add( a :any, b:any ) :any { return a + b }  
+구현부
+
+
 
 객체 
 클래스를 사용해서 실제 만드는것
+

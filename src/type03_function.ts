@@ -39,4 +39,24 @@ function printUsername(this:User2){
     console.log(this.name)
 }
 const myFun = printUsername.bind(yellow);
-myFun
+
+
+//함수 오버로드 
+interface Person {
+    name: string;
+    age: number;
+}
+function join(name: string, age: string): string;
+function join(name: string, age: number): Person;//함수 오버로드 
+function join(name: string, age: number | string ): Person| string {
+    if(typeof age === "number"){
+        return {
+            name:name,
+            age:age
+        }
+    }else{
+        return "나이는 숫자로 입력하세요."
+    }
+}
+const green2: Person = join("green",30);
+const blue: string = join("blue","hi")
